@@ -58,6 +58,8 @@ foreach ($data as $row) {
 
 // close the file
 fclose($f);
+ print_r($data);
+
 
     }
 }
