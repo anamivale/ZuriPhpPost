@@ -36,6 +36,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo $gender;
         echo $country;
 
+
+$data = [
+    [$name, $email, $date, $gender, $country],
+    
+];
+
+$filename = 'stock.csv';
+
+// open csv file for writing
+$f = fopen($filename, 'w');
+
+if ($f === false) {
+    die('Error opening the file ' . $filename);
+}
+
+// write each row at a time to a file
+foreach ($data as $row) {
+    fputcsv($f, $row);
+}
+
+// close the file
+fclose($f);
+
     }
 }
 ?>
