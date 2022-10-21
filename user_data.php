@@ -20,7 +20,6 @@
 </form>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // collect value of input field
     $name = $_POST['name'];
     $email = $_POST['email'];
     $date = $_POST['date'];
@@ -30,13 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($name)) {
         echo "Name is empty";
     } else {
-        echo $name;
-        echo($email);
-        echo $date;
-        echo $gender;
-        echo $country;
-
-
 $data = [
     [$name, $email, $date, $gender, $country],
     
@@ -44,19 +36,16 @@ $data = [
 
 $filename = 'stock.csv';
 
-// open csv file for writing
 $f = fopen($filename, 'a');
 
 if ($f === false) {
     die('Error opening the file ' . $filename);
 }
 
-// write each row at a time to a file
 foreach ($data as $row) {
     fputcsv($f, $row);
 }
 
-// close the file
 fclose($f);
  print_r($data);
 
