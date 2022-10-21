@@ -45,7 +45,7 @@ $data = [
 $filename = 'stock.csv';
 
 // open csv file for writing
-$f = fopen($filename, 'w');
+$f = fopen($filename, 'a');
 
 if ($f === false) {
     die('Error opening the file ' . $filename);
